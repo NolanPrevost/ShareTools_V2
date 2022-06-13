@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %} {% block title %}Tool index{% endblock %} {%
 block body %}
 <h1>Tool index</h1>
+{% if is_granted("ROLE_ADMIN") %}
 <a href="{{ path('app_tool_new') }}">Create new</a>
+
+{% endif %}
 <div class="row row-cols-1 row-cols-md-3 g-4">
   {% for tool in tools %}
   <div class="col">
@@ -13,8 +16,11 @@ block body %}
           This is a longer card with supporting text below as a natural lead-in
           to additional content. This content is a little bit longer.
         </p>
+          <a class="btn btn-info" href="#" role="button">Réserver</a>
+        {% if is_granted("ROLE_ADMIN") %}
         <a href="{{ path('app_tool_show', { id: tool.id }) }}">show</a>
         <a href="{{ path('app_tool_edit', { id: tool.id }) }}">edit</a>
+        {% endif %}
       </div>
     </div>
   </div>

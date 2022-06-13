@@ -16,24 +16,29 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-
+            form_login:
+                # "login" is the name of the route created previously
+                login_path: login
+                check_path: login
+                enable_csrf: true
+            logout:
+                path: app_logout
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
 
-            form_login:
-                # "login" is the name of the route created previously
-                login_path: login
-                check_path: login
-                enable_csrf: true
+            
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+    - { path: ^/tool/new, roles: ROLE_ADMIN }
+    - { path: ^/tool/edit, roles: ROLE_ADMIN }
+    - { path: ^/tool/delete, roles: ROLE_ADMIN }
 
 when@test:
     security:
