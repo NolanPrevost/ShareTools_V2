@@ -23,6 +23,8 @@ security:
                 enable_csrf: true
             logout:
                 path: app_logout
+            custom_authenticators:
+                - App\Security\ApiKeyAuthenticator
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
             # activate different ways to authenticate
