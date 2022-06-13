@@ -17,6 +17,7 @@
     </head>
     <body>
         {% include "navbar/navbar.html.twig" %}
+        {{ dump(app.user) }}
         <div class="container">
         {% block body %}{% endblock %}
     </div>

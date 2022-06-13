@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
         $contributor->setRoles(['ROLE_CONTRIBUTOR']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $contributor,
-            'frankosspassword'
+            'plop'
         );
         $contributor->setPassword($hashedPassword);
         $manager->persist($contributor);
@@ -33,7 +33,7 @@ class UserFixtures extends Fixture
         $admin->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $admin,
-            'adminpassword'
+            'plop'
         );
         $admin->setPassword($hashedPassword);
         $manager->persist($admin);
